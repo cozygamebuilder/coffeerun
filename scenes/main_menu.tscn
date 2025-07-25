@@ -1,0 +1,192 @@
+[gd_scene load_steps=4 format=3 uid="uid://dba4vgtxunibj"]
+
+[ext_resource type="Script" uid="uid://bdsoed5mgs5yr" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+bg_color = Color(0.137255, 0.0784314, 0, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.137255, 0.0784314, 0, 0.862745)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.141176, 0.0823529, 1)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="UILayer"]
+custom_minimum_size = Vector2(300, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleSection" type="VBoxContainer" parent="UILayer/MainContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="UILayer/MainContainer/TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.862745, 1)
+theme_override_font_sizes/font_size = 36
+text = "COFFEE RUN"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UILayer/MainContainer/TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.862745, 1)
+theme_override_font_sizes/font_size = 18
+text = "Can you keep up with the rush?"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="UILayer/MainContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ButtonSection" type="VBoxContainer" parent="UILayer/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="PlayButton" type="Button" parent="UILayer/MainContainer/ButtonSection"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "PLAY"
+
+[node name="HowToPlayButton" type="Button" parent="UILayer/MainContainer/ButtonSection"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "HOW TO PLAY"
+
+[node name="SettingsButton" type="Button" parent="UILayer/MainContainer/ButtonSection"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="UILayer/MainContainer/ButtonSection"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "QUIT"
+
+[node name="HowToPlayPanel" type="Panel" parent="UILayer"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+
+[node name="HowToPlayContainer" type="VBoxContainer" parent="UILayer/HowToPlayPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HowToPlayTitle" type="Label" parent="UILayer/HowToPlayPanel/HowToPlayContainer"]
+layout_mode = 2
+text = "How to Play"
+
+[node name="Instructions" type="RichTextLabel" parent="UILayer/HowToPlayPanel/HowToPlayContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]How to Play Coffee Run[/b][/center]
+
+Goal: Serve as many customers as possible in 5 minutes!
+
+Making Coffee:
+- Click ingredients to add them to your cup
+- Different customers want different drinks
+- Watch the speech bubbles for their orders
+
+Timing:
+- Hold the brew button for the right amount of time
+- Perfect timing = happy customer!
+
+Good luck!"
+
+[node name="CloseButton" type="Button" parent="UILayer/HowToPlayPanel/HowToPlayContainer"]
+layout_mode = 2
+text = "CLOSE"
+
+[node name="SettingsPanel" type="Panel" parent="UILayer"]
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
+
+[node name="SettingsContainer" type="VBoxContainer" parent="UILayer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="SettingsTitle" type="Label" parent="UILayer/SettingsPanel/SettingsContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="VolumeSection" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer"]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/VolumeSection"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="UILayer/SettingsPanel/SettingsContainer/VolumeSection"]
+layout_mode = 2
+
+[node name="FullscreenSection" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/FullscreenSection"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckBox" parent="UILayer/SettingsPanel/SettingsContainer/FullscreenSection"]
+layout_mode = 2
+
+[node name="CloseSettingsButton" type="Button" parent="UILayer/SettingsPanel/SettingsContainer"]
+layout_mode = 2
+text = "CLOSE"
