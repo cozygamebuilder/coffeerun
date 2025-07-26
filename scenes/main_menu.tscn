@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bdsoed5mgs5yr" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
-bg_color = Color(0.137255, 0.0784314, 0, 0.862745)
+bg_color = Color(0.137255, 0.0784314, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-bg_color = Color(0.137255, 0.0784314, 0, 0.862745)
+bg_color = Color(0.137255, 0.0784314, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -90,6 +90,7 @@ layout_mode = 2
 text = "QUIT"
 
 [node name="HowToPlayPanel" type="Panel" parent="UILayer"]
+visible = false
 custom_minimum_size = Vector2(600, 400)
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,13 +117,13 @@ theme_override_constants/separation = 20
 [node name="HowToPlayTitle" type="Label" parent="UILayer/HowToPlayPanel/HowToPlayContainer"]
 layout_mode = 2
 text = "How to Play"
+horizontal_alignment = 1
 
 [node name="Instructions" type="RichTextLabel" parent="UILayer/HowToPlayPanel/HowToPlayContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 bbcode_enabled = true
-text = "[center][b]How to Play Coffee Run[/b][/center]
-
-Goal: Serve as many customers as possible in 5 minutes!
+text = "Goal: Serve as many customers as possible in 5 minutes!
 
 Making Coffee:
 - Click ingredients to add them to your cup
@@ -140,6 +141,7 @@ layout_mode = 2
 text = "CLOSE"
 
 [node name="SettingsPanel" type="Panel" parent="UILayer"]
+visible = false
 custom_minimum_size = Vector2(400, 300)
 anchors_preset = 8
 anchor_left = 0.5
@@ -166,15 +168,16 @@ theme_override_constants/separation = 20
 [node name="SettingsTitle" type="Label" parent="UILayer/SettingsPanel/SettingsContainer"]
 layout_mode = 2
 text = "Settings"
+horizontal_alignment = 1
 
-[node name="VolumeSection" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer"]
+[node name="SoundSection" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer"]
 layout_mode = 2
 
-[node name="VolumeLabel" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/VolumeSection"]
+[node name="SoundLabel" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/SoundSection"]
 layout_mode = 2
-text = "Volume"
+text = "Sound"
 
-[node name="VolumeSlider" type="HSlider" parent="UILayer/SettingsPanel/SettingsContainer/VolumeSection"]
+[node name="SoundToggle" type="CheckBox" parent="UILayer/SettingsPanel/SettingsContainer/SoundSection"]
 layout_mode = 2
 
 [node name="FullscreenSection" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer"]

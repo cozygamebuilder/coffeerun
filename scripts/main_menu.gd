@@ -32,7 +32,7 @@ func _ready():
 # What happens when buttons are clicked
 func _on_play_pressed():
 	print("Play button clicked!")
-	# Later we'll change to the game scene here
+	get_tree().change_scene_to_file("res://scenes/Gameplay.tscn")
 
 func _on_how_to_play_pressed():
 	how_to_play_panel.visible = true
