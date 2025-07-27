@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dba4vgtxunibj"]
+[gd_scene load_steps=5 format=3 uid="uid://dba4vgtxunibj"]
 
 [ext_resource type="Script" uid="uid://bdsoed5mgs5yr" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://djs5ojbasd082" path="res://assets/title.png" id="2_ekxnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
 bg_color = Color(0.137255, 0.0784314, 0, 1)
@@ -47,23 +48,10 @@ grow_vertical = 2
 [node name="TitleSection" type="VBoxContainer" parent="UILayer/MainContainer"]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="UILayer/MainContainer/TitleSection"]
+[node name="TextureRect" type="TextureRect" parent="UILayer/MainContainer/TitleSection"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.960784, 0.960784, 0.862745, 1)
-theme_override_font_sizes/font_size = 36
-text = "COFFEE RUN"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="UILayer/MainContainer/TitleSection"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.960784, 0.960784, 0.862745, 1)
-theme_override_font_sizes/font_size = 18
-text = "Can you keep up with the rush?"
-horizontal_alignment = 1
-
-[node name="Spacer1" type="Control" parent="UILayer/MainContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
+texture = ExtResource("2_ekxnf")
+expand_mode = 4
 
 [node name="ButtonSection" type="VBoxContainer" parent="UILayer/MainContainer"]
 layout_mode = 2
@@ -123,9 +111,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Goal: Serve as many customers as possible in 5 minutes!
-
-Making Coffee:
+text = "Making Coffee:
 - Click ingredients to add them to your cup
 - Different customers want different drinks
 - Watch the speech bubbles for their orders

@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx534pf22oqsh"]
+
+[ext_resource type="Texture2D" uid="uid://dv2xyx6witm0p" path="res://assets/background.png" id="1_4aew2"]
+[ext_resource type="Script" uid="uid://d846cn5mlm4q" path="res://scripts/gameplay.gd" id="1_gnmmn"]
+[ext_resource type="Texture2D" uid="uid://cndke7uv8qfwp" path="res://assets/beans.png" id="2_75vxi"]
+[ext_resource type="Texture2D" uid="uid://tk87bjdk3pa2" path="res://assets/customer.png" id="2_a8mty"]
+[ext_resource type="Texture2D" uid="uid://ctsyo4tpcbjp7" path="res://assets/drink.png" id="4_jfxgp"]
+[ext_resource type="Script" uid="uid://8h08lap7m146" path="res://scripts/game_manager.gd" id="6_4rwr5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4aew2"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Gameplay" type="Node2D"]
+script = ExtResource("1_gnmmn")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(769, 510)
+texture = ExtResource("1_4aew2")
+
+[node name="CustomerNode" type="Node2D" parent="."]
+
+[node name="Customer" type="Sprite2D" parent="CustomerNode"]
+position = Vector2(865, 474)
+scale = Vector2(0.627364, 0.684968)
+texture = ExtResource("2_a8mty")
+
+[node name="SpeechPanel" type="Panel" parent="CustomerNode"]
+offset_left = 1048.0
+offset_top = 417.0
+offset_right = 1088.0
+offset_bottom = 457.0
+
+[node name="Speech" type="Label" parent="CustomerNode/SpeechPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -7.0
+offset_right = 321.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4aew2")
+
+[node name="CoffeeStationNode" type="Node2D" parent="."]
+
+[node name="BrewButton" type="Button" parent="CoffeeStationNode"]
+offset_left = 53.0
+offset_top = 828.0
+offset_right = 136.0
+offset_bottom = 878.0
+theme_override_font_sizes/font_size = 30
+text = "Brew"
+
+[node name="BeansButton" type="TextureButton" parent="CoffeeStationNode"]
+offset_left = 1229.0
+offset_top = 656.0
+offset_right = 2253.0
+offset_bottom = 1680.0
+scale = Vector2(0.291896, 0.265287)
+texture_normal = ExtResource("2_75vxi")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FeedbackLabel" type="Label" parent="UI"]
+offset_left = 46.0
+offset_top = 380.0
+offset_right = 252.0
+offset_bottom = 435.0
+theme_override_font_sizes/font_size = 40
+text = "Nice Brew!"
+
+[node name="NextCustomerButton" type="Button" parent="UI"]
+offset_right = 518.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 70
+text = "Next Customer"
+
+[node name="Drink" type="TextureRect" parent="UI"]
+visible = false
+offset_left = 629.0
+offset_top = 662.0
+offset_right = 2165.0
+offset_bottom = 1686.0
+scale = Vector2(0.297245, 0.298035)
+texture = ExtResource("4_jfxgp")
+
+[node name="BrewChallenge" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 503.0
+offset_right = -1374.0
+offset_bottom = -491.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrewBar" type="ProgressBar" parent="UI/BrewChallenge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("6_4rwr5")
